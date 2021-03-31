@@ -1,5 +1,6 @@
 package com.alhudaghifari.movieapp.view.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -17,6 +18,7 @@ import com.alhudaghifari.movieapp.model.MovieListModel
 import com.alhudaghifari.movieapp.presenter.movie_list.MovieListInterface
 import com.alhudaghifari.movieapp.presenter.movie_list.MovieListPresenter
 import com.alhudaghifari.movieapp.utils.showToast
+import com.alhudaghifari.movieapp.view.detailmovie.DetailMovieActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
@@ -50,6 +52,7 @@ class MainActivity : AppCompatActivity(), MovieListInterface {
     override fun onResume() {
         super.onResume()
         Log.d(TAG, "onResume")
+        page = 1
         callData()
         isDataFromPagination = false
     }
@@ -135,6 +138,14 @@ class MainActivity : AppCompatActivity(), MovieListInterface {
     private fun setAdapter() {
         binding.rvMovieMain.layoutManager = LinearLayoutManager(applicationContext)
         adapter = HomeAdapter(applicationContext, mutableListOf())
+        adapter.setOnJadwalKuliahClickListener(object: HomeAdapter.OnMovieClickListener {
+            override fun onClick(position: Int, itemMovie: ItemMovie) {
+                bsCategory.state = BottomSheetBehavior.STATE_HIDDEN
+                val intent = Intent(this@MainActivity, DetailMovieActivity::class.java)
+                intent.putExtra("itemMovie", itemMovie)
+                startActivity(intent)
+            }
+        })
         binding.rvMovieMain.adapter = adapter
         setScrollListener()
     }

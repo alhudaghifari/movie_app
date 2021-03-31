@@ -14,10 +14,13 @@ import com.alhudaghifari.movieapp.R
 import com.alhudaghifari.movieapp.model.ItemMovie
 import com.alhudaghifari.movieapp.presenter.ApiConstant
 import com.alhudaghifari.movieapp.utils.DateFormatterUtils
+import com.alhudaghifari.movieapp.utils.ImageUtils
 import com.bumptech.glide.Glide
 
-class HomeAdapter(internal var context: Context?, internal var data: MutableList<ItemMovie>)  : RecyclerView.Adapter<HomeAdapter.ArticleViewHolder>() {
+class HomeAdapter(internal var context: Context?, internal var data: MutableList<ItemMovie>) :
+    RecyclerView.Adapter<HomeAdapter.ArticleViewHolder>() {
 
+    private var onMovieClickListener: OnMovieClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false)
@@ -27,34 +30,25 @@ class HomeAdapter(internal var context: Context?, internal var data: MutableList
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val item = data[position]
 
-        holder.tvTitle.text = item.originalTitle ?: ""
-        holder.tvReleasedDate.text = DateFormatterUtils().getDateFormatting4(context!!, item.releaseDate ?: "")
-        holder.tvDescription.text = item.overview ?: ""
+        holder.tvTitle.text = item.originalTitle ?: "-"
+        holder.tvReleasedDate.text =
+            DateFormatterUtils().getDateFormatting4(context!!, item.releaseDate ?: "")
+        holder.tvDescription.text = item.overview ?: "-"
 
-        var path = ""
-        if (item.posterPath != null) {
-            if (item.posterPath.contains("/")) {
-                path = item.posterPath
-            } else {
-                path = "/${item.posterPath}"
+        ImageUtils().loadImage(context!!, holder.ivImage, item.posterPath)
+
+        holder.conlayParentMovie.setOnClickListener {
+            if (onMovieClickListener != null) {
+                onMovieClickListener!!.onClick(position, item)
             }
         }
-
-        val imgUrl = ApiConstant().imgServer + path
-
-        Glide
-            .with(context!!)
-            .load(imgUrl)
-            .centerCrop()
-            .placeholder(R.drawable.ic_baseline_image_24)
-            .into(holder.ivImage);
     }
 
     override fun getItemCount(): Int {
         return data.size
     }
 
-    fun addNewData(data:List<ItemMovie>) {
+    fun addNewData(data: List<ItemMovie>) {
         this.data.addAll(data)
         notifyDataSetChanged()
     }
@@ -81,4 +75,11 @@ class HomeAdapter(internal var context: Context?, internal var data: MutableList
         }
     }
 
+    interface OnMovieClickListener {
+        fun onClick(position: Int, itemMovie: ItemMovie)
+    }
+
+    fun setOnJadwalKuliahClickListener(onMovieClickListener: OnMovieClickListener) {
+        this.onMovieClickListener = onMovieClickListener
+    }
 }
