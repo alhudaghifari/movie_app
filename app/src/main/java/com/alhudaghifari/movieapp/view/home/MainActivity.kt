@@ -140,9 +140,7 @@ class MainActivity : AppCompatActivity(), MovieListInterface {
     }
 
     private fun setBtnCategoryListener() {
-        Log.d(TAG, "nge set click")
         binding.btnCategory.setOnClickListener {
-            Log.d(TAG, " click")
             bsCategory.state = BottomSheetBehavior.STATE_EXPANDED
         }
     }
@@ -195,7 +193,6 @@ class MainActivity : AppCompatActivity(), MovieListInterface {
         )
         binding.listCategory.adapter = adapterCategory
         binding.listCategory.setOnItemClickListener({ parent, view, position, id ->
-            Log.d(TAG, "hai id nya : $id | posisi nya : $position")
             activeCategory = position
             page = 1
             callData()

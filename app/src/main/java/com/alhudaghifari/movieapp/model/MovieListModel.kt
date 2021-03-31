@@ -49,20 +49,8 @@ data class ItemMovie(
 	@field:SerializedName("release_date")
 	val releaseDate: String? = null,
 
-	@field:SerializedName("popularity")
-	val popularity: Double? = null,
-
-	@field:SerializedName("vote_average")
-	val voteAverage: Double? = null,
-
 	@field:SerializedName("id")
 	val id: Int? = null,
-
-	@field:SerializedName("adult")
-	val adult: Boolean? = null,
-
-	@field:SerializedName("vote_count")
-	val voteCount: Int? = null
 )
 
 data class Dates(

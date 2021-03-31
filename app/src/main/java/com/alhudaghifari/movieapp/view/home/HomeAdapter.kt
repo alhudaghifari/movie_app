@@ -29,7 +29,7 @@ class HomeAdapter(internal var context: Context?, internal var data: MutableList
 
         holder.tvTitle.text = item.originalTitle ?: ""
         holder.tvReleasedDate.text = DateFormatterUtils().getDateFormatting4(context!!, item.releaseDate ?: "")
-        holder.tvDescription.text = item.overview
+        holder.tvDescription.text = item.overview ?: ""
 
         var path = ""
         if (item.posterPath != null) {
