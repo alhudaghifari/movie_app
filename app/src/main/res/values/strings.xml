@@ -1,6 +1,20 @@
 <resources>
     <string name="app_name">Movie App</string>
-    <string name="no_data">Tidak ada data</string>
+    <string name="no_data">No Data</string>
     <string name="action_favorite">Favorite</string>
     <string name="category">Category</string>
+    <string name="error_500">We are sorry for the problem, please try again later [500]</string>
+
+    <string name="month_april_simple" translatable="false">Apr</string>
+    <string name="month_augusts_simple" translatable="false">Ags</string>
+    <string name="month_december_simple" translatable="false">Des</string>
+    <string name="month_february_simple" translatable="false">Feb</string>
+    <string name="month_january_simple" translatable="false">Jan</string>
+    <string name="month_july_simple" translatable="false">Jul</string>
+    <string name="month_june_simple" translatable="false">Jun</string>
+    <string name="month_march_simple" translatable="false">Mar</string>
+    <string name="month_may_simple" translatable="false">Mei</string>
+    <string name="month_november_simple" translatable="false">Nov</string>
+    <string name="month_october_simple" translatable="false">Okt</string>
+    <string name="month_september_simple" translatable="false">Sep</string>
 </resources>
