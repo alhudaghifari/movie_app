@@ -14,7 +14,7 @@ data class ReviewModel(
 	val totalPages: Int? = null,
 
 	@field:SerializedName("results")
-	val results: List<ItemReview?>? = null,
+	val results: MutableList<ItemReview>? = null,
 
 	@field:SerializedName("total_results")
 	val totalResults: Int? = null
@@ -53,7 +53,7 @@ data class AuthorDetails(
 	val name: String? = null,
 
 	@field:SerializedName("rating")
-	val rating: Any? = null,
+	val rating: Double? = null,
 
 	@field:SerializedName("username")
 	val username: String? = null
