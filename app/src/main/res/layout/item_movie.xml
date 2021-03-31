@@ -6,6 +6,7 @@
     android:layout_height="160dp"
     android:background="@drawable/style_rounded_white"
     android:layout_margin="10dp"
+    android:padding="10dp"
     android:elevation="6dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -14,9 +15,9 @@
         android:layout_width="100dp"
         android:layout_height="130dp"
         android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -35,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="released"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/ivImage"
@@ -43,12 +44,17 @@
 
     <TextView
         android:id="@+id/tvDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLines="4"
         android:text="desc"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/ivImage"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ivImage"
         app:layout_constraintTop_toBottomOf="@+id/tvReleasedDate" />
 
