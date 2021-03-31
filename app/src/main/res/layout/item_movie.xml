@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/conlayParentMovie"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@drawable/style_rounded_white"
+    android:layout_margin="10dp"
+    android:elevation="6dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/ivImage"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="title"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/ivImage"
+        app:layout_constraintTop_toTopOf="@id/ivImage"
+        tools:layout_editor_absoluteY="15dp" />
+
+    <TextView
+        android:id="@+id/tvReleasedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="released"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/ivImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="desc"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/ivImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvReleasedDate" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
