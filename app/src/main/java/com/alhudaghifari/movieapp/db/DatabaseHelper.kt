@@ -7,6 +7,10 @@ interface DatabaseHelper {
 
     suspend fun getFavoriteMovie(): List<Movie>
 
+    suspend fun getMovieById(idMovie: String): List<Movie>
+
     suspend fun insertAll(movie: List<Movie>)
+
+    suspend fun deleteData(movie: Movie)
 
 }

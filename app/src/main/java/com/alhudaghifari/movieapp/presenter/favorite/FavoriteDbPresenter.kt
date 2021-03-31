@@ -20,7 +20,17 @@ class FavoriteDbPresenter(private val dbHelper: DatabaseHelper) :
     private fun fetchMovies() {
         viewModelScope.launch {
             movies.postValue(Resource.loading(null))
+            try {
+                val moviesFromDb = dbHelper.getFavoriteMovie()
+                if (moviesFromDb.isNotEmpty()) {
+                    movies.postValue(Resource.success(moviesFromDb))
+                } else {
+                    movies.postValue(Resource.success(listOf()))
+                }
 
+            } catch (e: Exception) {
+                movies.postValue(Resource.error("Something went wrong", null))
+            }
         }
     }
 

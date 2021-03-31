@@ -7,6 +7,10 @@ class DatabaseHelperImpl(private val appDatabase: AppDatabase) : DatabaseHelper 
 
     override suspend fun getFavoriteMovie(): List<Movie> = appDatabase.movieDao().getAll()
 
+    override suspend fun getMovieById(idMovie: String): List<Movie> = appDatabase.movieDao().getDataById(idMovie)
+
     override suspend fun insertAll(movie: List<Movie>) = appDatabase.movieDao().insertAll(movie)
+
+    override suspend fun deleteData(movie: Movie) = appDatabase.movieDao().delete(movie)
 
 }
