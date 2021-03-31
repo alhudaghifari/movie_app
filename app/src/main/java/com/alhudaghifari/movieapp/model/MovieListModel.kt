@@ -1,6 +1,8 @@
 package com.alhudaghifari.movieapp.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
 data class MovieListModel(
 
@@ -20,6 +22,7 @@ data class MovieListModel(
 	val totalResults: Int? = null
 )
 
+@Parcelize
 data class ItemMovie(
 
 	@field:SerializedName("overview")
@@ -51,7 +54,7 @@ data class ItemMovie(
 
 	@field:SerializedName("id")
 	val id: Int? = null,
-)
+) : Parcelable
 
 data class Dates(
 
