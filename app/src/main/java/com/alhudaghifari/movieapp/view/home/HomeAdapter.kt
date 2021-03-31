@@ -59,6 +59,11 @@ class HomeAdapter(internal var context: Context?, internal var data: MutableList
         notifyDataSetChanged()
     }
 
+    fun setNewData(data: MutableList<ItemMovie>) {
+        this.data = data
+        notifyDataSetChanged()
+    }
+
     class ArticleViewHolder(mViewContainer: View) : RecyclerView.ViewHolder(mViewContainer) {
         internal var conlayParentMovie: ConstraintLayout
 
