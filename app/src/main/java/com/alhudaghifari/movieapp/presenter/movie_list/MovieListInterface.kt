@@ -5,5 +5,4 @@ import com.alhudaghifari.movieapp.presenter.ConnStatus
 
 interface MovieListInterface: ConnStatus {
     fun callFinished(model: MovieListModel)
-    fun showError(msg: String?)
 }
