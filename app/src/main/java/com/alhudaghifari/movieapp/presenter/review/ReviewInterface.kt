@@ -5,5 +5,5 @@ import com.alhudaghifari.movieapp.model.ReviewModel
 import com.alhudaghifari.movieapp.presenter.ConnStatus
 
 interface ReviewInterface: ConnStatus {
-    fun callFinished(model: ReviewModel)
+    fun callFinished(model: ReviewModel?)
 }

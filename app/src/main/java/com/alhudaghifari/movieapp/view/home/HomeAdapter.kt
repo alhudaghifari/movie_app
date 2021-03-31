@@ -79,7 +79,7 @@ class HomeAdapter(internal var context: Context?, internal var data: MutableList
         fun onClick(position: Int, itemMovie: ItemMovie)
     }
 
-    fun setOnJadwalKuliahClickListener(onMovieClickListener: OnMovieClickListener) {
+    fun setOnMovieClickListener(onMovieClickListener: OnMovieClickListener) {
         this.onMovieClickListener = onMovieClickListener
     }
 }

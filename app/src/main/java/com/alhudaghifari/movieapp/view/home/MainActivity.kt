@@ -138,7 +138,7 @@ class MainActivity : AppCompatActivity(), MovieListInterface {
     private fun setAdapter() {
         binding.rvMovieMain.layoutManager = LinearLayoutManager(applicationContext)
         adapter = HomeAdapter(applicationContext, mutableListOf())
-        adapter.setOnJadwalKuliahClickListener(object: HomeAdapter.OnMovieClickListener {
+        adapter.setOnMovieClickListener(object: HomeAdapter.OnMovieClickListener {
             override fun onClick(position: Int, itemMovie: ItemMovie) {
                 bsCategory.state = BottomSheetBehavior.STATE_HIDDEN
                 val intent = Intent(this@MainActivity, DetailMovieActivity::class.java)

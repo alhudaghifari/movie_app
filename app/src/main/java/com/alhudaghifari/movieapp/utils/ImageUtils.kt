@@ -24,6 +24,6 @@ class ImageUtils {
             .load(imgUrl)
             .centerCrop()
             .placeholder(R.drawable.ic_baseline_image_24)
-            .into(ivImage);
+            .into(ivImage)
     }
 }
