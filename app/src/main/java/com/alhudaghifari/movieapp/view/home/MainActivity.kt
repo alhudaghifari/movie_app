@@ -19,6 +19,7 @@ import com.alhudaghifari.movieapp.presenter.movie_list.MovieListInterface
 import com.alhudaghifari.movieapp.presenter.movie_list.MovieListPresenter
 import com.alhudaghifari.movieapp.utils.showToast
 import com.alhudaghifari.movieapp.view.detailmovie.DetailMovieActivity
+import com.alhudaghifari.movieapp.view.favorite.FavoriteActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 
@@ -78,7 +79,8 @@ class MainActivity : AppCompatActivity(), MovieListInterface {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_favorite -> {
-            //
+            val intent = Intent(this@MainActivity, FavoriteActivity::class.java)
+            startActivity(intent)
             true
         }
         else -> {

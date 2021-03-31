@@ -17,7 +17,7 @@
             android:name=".view.detailmovie.DetailMovieActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".view.FavoriteActivity"
+            android:name=".view.favorite.FavoriteActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".view.home.MainActivity"

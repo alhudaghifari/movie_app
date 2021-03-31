@@ -12,7 +12,6 @@ class DetailReviewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_review)
         binding = ActivityDetailReviewBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
