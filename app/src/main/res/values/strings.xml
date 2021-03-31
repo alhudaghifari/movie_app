@@ -4,6 +4,8 @@
     <string name="action_favorite">Favorite</string>
     <string name="category">Category</string>
     <string name="error_500">We are sorry for the problem, please try again later [500]</string>
+    <string name="review">Reviews</string>
+    <string name="review_detail">Detail Review</string>
 
     <string name="month_april_simple" translatable="false">Apr</string>
     <string name="month_augusts_simple" translatable="false">Ags</string>
