@@ -6,6 +6,11 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class DateFormatterUtils {
+    /**
+     * date formatter
+     * input example : 2021-04-01
+     * output : 01 Apr 2021
+     */
     fun getDateFormatting4(context: Context, myDate: String): String {
         try {
             val date = SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).parse(myDate)
