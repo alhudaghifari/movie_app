@@ -56,6 +56,7 @@ class FavoriteDbHelper(private val dbHelper: DatabaseHelper) :
                     itemMovie.id!!,
                     itemMovie.title,
                     itemMovie.releaseDate,
+                    itemMovie.overview,
                     itemMovie.posterPath,
                 )
                 val movieToInsertInDb = mutableListOf<Movie>()
@@ -77,6 +78,7 @@ class FavoriteDbHelper(private val dbHelper: DatabaseHelper) :
                     itemMovie.id!!,
                     itemMovie.title,
                     itemMovie.releaseDate,
+                    itemMovie.overview,
                     itemMovie.posterPath,
                 )
 

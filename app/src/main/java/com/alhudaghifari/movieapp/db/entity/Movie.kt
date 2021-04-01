@@ -10,5 +10,6 @@ data class Movie(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "title") val title: String?,
     @ColumnInfo(name = "releasedDate") val releasedDate: String?,
-    @ColumnInfo(name = "posterPath") val posterPath: String?
+    @ColumnInfo(name = "overview") val overview: String?,
+    @ColumnInfo(name = "posterPath") val posterPath: String?,
 )
