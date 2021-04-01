@@ -6,13 +6,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alhudaghifari.movieapp.db.DatabaseHelper
 import com.alhudaghifari.movieapp.db.entity.Movie
+import com.alhudaghifari.movieapp.model.ItemMovie
 import com.alhudaghifari.movieapp.utils.Resource
 import kotlinx.coroutines.launch
 
-class FavoriteDbPresenter(private val dbHelper: DatabaseHelper) :
+class FavoriteDbHelper(private val dbHelper: DatabaseHelper) :
     ViewModel() {
     private val movies = MutableLiveData<Resource<List<Movie>>>()
     private val singleMovie = MutableLiveData<Resource<List<Movie>>>()
+    private val changeStatusFavorite = MutableLiveData<Resource<Boolean>>()
 
     fun fetchMovies() {
         viewModelScope.launch {
@@ -30,7 +32,7 @@ class FavoriteDbPresenter(private val dbHelper: DatabaseHelper) :
         }
     }
 
-    fun fetchMovieById(idMovie: String) {
+    fun fetchMovieById(idMovie: Int) {
         viewModelScope.launch {
             singleMovie.postValue(Resource.loading(null))
             try {
@@ -46,11 +48,55 @@ class FavoriteDbPresenter(private val dbHelper: DatabaseHelper) :
         }
     }
 
+    fun addFavorite(itemMovie: ItemMovie) {
+        viewModelScope.launch {
+            changeStatusFavorite.postValue(Resource.loading(null))
+            try {
+                val movie = Movie(
+                    itemMovie.id!!,
+                    itemMovie.title,
+                    itemMovie.releaseDate,
+                    itemMovie.posterPath,
+                )
+                val movieToInsertInDb = mutableListOf<Movie>()
+                movieToInsertInDb.add(movie)
+
+                dbHelper.insertAll(movieToInsertInDb)
+                changeStatusFavorite.postValue(Resource.success(true))
+            } catch (e: Exception) {
+                changeStatusFavorite.postValue(Resource.error("Something went wrong", null))
+            }
+        }
+    }
+
+    fun deleteFavorite(itemMovie: ItemMovie) {
+        viewModelScope.launch {
+            changeStatusFavorite.postValue(Resource.loading(null))
+            try {
+                val movie = Movie(
+                    itemMovie.id!!,
+                    itemMovie.title,
+                    itemMovie.releaseDate,
+                    itemMovie.posterPath,
+                )
+
+                dbHelper.deleteData(movie)
+                changeStatusFavorite.postValue(Resource.success(false))
+            } catch (e: Exception) {
+                changeStatusFavorite.postValue(Resource.error("Something went wrong", null))
+            }
+        }
+    }
+
     fun getMovies(): LiveData<Resource<List<Movie>>> {
         return movies
     }
 
     fun getSingleMovie(): LiveData<Resource<List<Movie>>> {
         return singleMovie
+    }
+
+    fun getStatusFavorite() : LiveData<Resource<Boolean>> {
+        return changeStatusFavorite
     }
 }
