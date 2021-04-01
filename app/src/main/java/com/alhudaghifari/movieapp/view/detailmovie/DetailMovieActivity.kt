@@ -152,8 +152,8 @@ class DetailMovieActivity : AppCompatActivity(), ReviewInterface {
 
     private fun setData() {
         ImageUtils().loadImage(this, binding.ivImage, itemMovie.posterPath)
-        binding.tvTitleToolbar.text = itemMovie.title ?: "Detail"
-        binding.tvTitle.text = itemMovie.title ?: "-"
+        binding.tvTitleToolbar.text = itemMovie.originalTitle ?: "Detail"
+        binding.tvTitle.text = itemMovie.originalTitle ?: "-"
         binding.tvReleasedDate.text =
             DateFormatterUtils().getDateFormatting4(this, itemMovie.releaseDate ?: "")
         binding.tvDescription.text = itemMovie.overview ?: "-"
